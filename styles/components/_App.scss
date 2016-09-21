@@ -1,0 +1,50 @@
+$color: #f1f1f1;
+
+.demo {
+    padding: 40px;
+
+    &-default {
+        &-heading {
+            height: 42px;
+            width: 220px;
+            margin-bottom: 20px;
+            background-color: $color;
+        }
+
+        &-caption {
+            height: 20px;
+            width: 220px;
+            margin-bottom: 20px;
+            background-color: $color;
+        }
+
+        &-button {
+            height: 20px;
+            width: 60px;
+            margin-bottom: 20px;
+            background-color: $color;
+        }
+    }
+
+    &-heading {
+        margin-top: 0px;
+        line-height: 42px;
+        height: 42px;
+        font-size: 34px;
+        margin-bottom: 20px;
+        color: gray;
+    }
+
+    &-caption {
+        line-height: 20px;
+        height: 20px;
+        font-size: 16px;
+        margin-bottom: 20px;
+        color: gray;
+    }
+
+    &-button {
+        height: 40px;
+        font-size: 16px;
+    }
+}
