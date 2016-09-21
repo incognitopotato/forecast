@@ -4,4 +4,10 @@ html, body {
   margin: 0;
 }
 
+#mountPoint {
+    min-height: 100vh;
+}
+
 @import 'components/App';
+@import 'components/SearchForm';
+@import 'components/SearchView';

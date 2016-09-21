@@ -1,0 +1,46 @@
+.search-view {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__inner {
+
+    }
+
+    &__logo-wrapper {
+        position: relative;
+    }
+
+    &__logo-text {
+        font-family: sans-serif;
+        font-size: 48px;
+        margin-bottom: 0px;
+    }
+
+    &__logo-z {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+
+        &:first-child {
+            transform: translate(-15px, -5px);
+        }
+
+        &:nth-child(2) {
+            transform:
+                translate(-31px, -10px)
+                rotate(40deg);
+        }
+
+        &:nth-child(3) {
+            transform:
+                translate(-40px, -25px)
+                rotate(69deg);
+        }
+    }
+
+    .search-form {
+
+    }
+}

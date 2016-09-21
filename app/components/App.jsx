@@ -1,10 +1,10 @@
-import React from 'react'
-import Searchbar from './Searchbar.jsx'
+import React from 'react';
+import { SearchViewContainer } from '../containers';
 
 const App = () => (
-  <div className="application">
-    <Searchbar />
-  </div>
+  <main className="application">
+    <SearchViewContainer />
+  </main>
 )
 
 export default App

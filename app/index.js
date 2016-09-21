@@ -4,11 +4,10 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
-import appReducers from './reducers';
+import rootReducer from './reducers';
 import { App } from './components';
 
 const isomorphicState = window.__PRELOADED_STATE__ || false;
-const rootReducer = combineReducers(appReducers);
 const logger = createLogger();
 let store;
 

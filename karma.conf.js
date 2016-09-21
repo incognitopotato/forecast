@@ -61,6 +61,8 @@ module.exports = function(config) {
       'karma-sourcemap-loader',
       'karma-chrome-launcher',
       'karma-phantomjs-launcher',
+      'karma-safari-launcher',
+      'karma-firefox-launcher',
       'karma-verbose-reporter'
     ],
 
@@ -75,7 +77,7 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome', 'PhantomJS'],
+    browsers: ['Chrome', 'PhantomJS', 'Safari', 'Firefox'],
     singleRun: false,
   })
 };

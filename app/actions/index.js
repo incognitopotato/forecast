@@ -1,26 +1,27 @@
-// Pure Action Creators
-export const UPDATE_CUSTOMER = 'UPDATE_CUSTOMER';
-export const INITIALIZE_CUSTOMER = 'INITIALIZE_CUSTOMER';
+import { views } from '../utils/constants'
 
-export const updateCustomer = () => ({
-  type: UPDATE_CUSTOMER,
+// Pure Action Creators
+export const UPDATE_VIEW = 'UPDATE_VIEW';
+export const UPDATE_ZIPCODE = 'UPDATE_ZIPCODE';
+export const UPDATE_WEATHER_DATA = 'UPDATE_WEATHER_DATA';
+
+export const updateView = (area, view) => ({
+  type: UPDATE_VIEW,
   data: {
-    firstName: 'Dominic',
-    lastName: 'West',
-    gender: 'm',
-    prefix: 'mr'
+    area,
+    view
   }
 });
-export const initializeCustomer = () => ({
-  type: INITIALIZE_CUSTOMER
+
+export const updateZipcode = (zipcode) => ({
+  type: UPDATE_ZIPCODE,
+  data: {
+    zipcode
+  }
 });
 
-// Async Action Creators
-export function getCustomer() {
-  return (dispatch) => {
-    setTimeout(() => {
-      dispatch(updateCustomer());
-      dispatch(initializeCustomer());
-    }, 3000);
+export function submitSearchForm(zipcode){
+  return (dispatch, getState) => {
+    dispatch(updateZipcode(zipcode));
   };
 }

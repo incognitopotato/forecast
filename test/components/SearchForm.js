@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
-import { Searchbar } from '../../app/components';
+import { SearchForm } from '../../app/components';
 
-describe("Component: Searchbar - ", function() {
+describe("Component: SearchForm - ", function() {
   let submitSpy, mockEvent, preventDefaultSpy, data, wrapper;
 
   beforeEach(() => {
@@ -19,8 +19,8 @@ describe("Component: Searchbar - ", function() {
       placeholder: 'baz',
       onSubmit: submitSpy
     };
-    wrapper = shallow(
-      <Searchbar { ...data } />
+    wrapper = mount(
+      <SearchForm { ...data } />
     );
   });
 
@@ -39,8 +39,25 @@ describe("Component: Searchbar - ", function() {
     expect(preventDefaultSpy).toHaveBeenCalled();
   });
 
+  it("It updates component state on input change event", function() {
+    const input = wrapper.find('input');
+    expect(wrapper.state('value')).toBe('');
+    input.simulate('change', { target: { value: 'foo' } });
+    expect(wrapper.state('value')).toBe('foo');
+  });
+
   it("It calls submitHandler method on submit with input value", function() {
+    const input = wrapper.find('input');
+    input.simulate('change', { target: { value: 'foo' } });
     wrapper.find('form').simulate('submit', mockEvent);
     expect(submitSpy).toHaveBeenCalledWith('foo');
+  });
+
+  it("It renders with correct defaults", function() {
+    wrapper = shallow(<SearchForm />);
+    const input = wrapper.find('input');
+    const button = wrapper.find('button');
+    expect(input.props().placeholder).toBe(SearchForm.defaultProps.placeholder);
+    expect(button.text()).toBe(SearchForm.defaultProps.cta);
   });
 });
