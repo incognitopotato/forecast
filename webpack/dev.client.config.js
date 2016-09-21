@@ -21,7 +21,7 @@ module.exports = {
         loader: 'babel',
         exclude: /node_modules/,
         query: {
-          presets: ['react', 'es2015']
+          presets: ['react', 'es2015', 'airbnb']
         }
       },
       {
@@ -29,7 +29,7 @@ module.exports = {
         loader: 'babel',
         exclude: /node_modules/,
         query: {
-          presets: ['es2015', 'react']
+          presets: ['es2015', 'react', 'airbnb']
         }
       },
       {
@@ -42,6 +42,13 @@ module.exports = {
     }
   },
   devServer: {
-    contentBase: "./app"
+    contentBase: "./app",
+    stats: 'errors-only'
+  },
+  externals: {
+    'cheerio': 'window',
+    'react/addons': true,
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': true
   }
 };
