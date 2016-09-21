@@ -53,6 +53,18 @@ describe("Component: SearchForm - ", function() {
     expect(submitSpy).toHaveBeenCalledWith('foo');
   });
 
+  xit("It does not submit when not valid", function() {
+  });
+
+  xit("It surfaces error message onSubmit when not valid", function() {
+  });
+
+  xit("It hides error message onChange when going from invalid to valid", function() {
+  });
+
+  xit("It uses the validator prop to test input with regex", function() {
+  });
+
   it("It renders with correct defaults", function() {
     wrapper = shallow(<SearchForm />);
     const input = wrapper.find('input');

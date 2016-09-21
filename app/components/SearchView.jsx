@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
 import { isClient } from '../utils/env';
 import { renderWithDefault } from '../utils/renderingHelpers';
+import { regZip } from '../utils/regex';
 import { arrowNoop as noop } from '../utils/noop';
 import { SearchForm } from './';
 
@@ -34,7 +36,9 @@ SearchView.propTypes = {
   logoText: PropTypes.string,
   form: PropTypes.shape({
     cta: PropTypes.string,
-    placeholder: PropTypes.string
+    placeholder: PropTypes.string,
+    validator: PropTypes.instanceOf(RegExp),
+    errorMsg: PropTypes.string
   }),
 
   // redux
@@ -47,7 +51,9 @@ SearchView.defaultProps = {
   logoText: 'Snorecast.',
   form: {
     cta: 'zzz',
-    placeholder: 'zipcode'
+    placeholder: 'zipcode',
+    validator: regZip,
+    errorMsg: 'Please enter a valid 5 digit zipcode.'
   },
   onSubmit: noop,
   isHeaderMode: false,
