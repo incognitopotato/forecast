@@ -1,10 +1,11 @@
 import React from 'react';
-import { SearchViewContainer } from '../containers';
+import { SearchViewContainer, ForecastViewContainer } from '../containers';
 
 const App = () => (
   <main className="application">
     <SearchViewContainer />
+    <ForecastViewContainer />
   </main>
-)
+);
 
-export default App
+export default App;

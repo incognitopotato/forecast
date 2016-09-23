@@ -1,19 +1,15 @@
-import path from 'path';
 import Express from 'express';
-
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../../webpack/dev.server.config.js';
-
 import React from 'react';
+import thunk from 'redux-thunk';
+import createNodeLogger from 'redux-node-logger';
+import appReducers from '../reducers';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import createNodeLogger from 'redux-node-logger';
-
-import appReducers from '../reducers';
 import { App } from '../components';
 
 const app = new Express();

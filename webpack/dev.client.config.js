@@ -4,8 +4,8 @@ var webpack = require('webpack');
 module.exports = {
   entry: [
     'babel-polyfill',
-    './styles/main.scss',
-    './app/index.js',
+    './style/main.scss',
+    './app/index.jsx',
     'webpack-dev-server/client?http://localhost:8080'
   ],
   output: {
@@ -15,6 +15,23 @@ module.exports = {
   debug: true,
   devtool: 'source-map',
   module: {
+    preLoaders: [
+      {
+        test: /\.jsx$/,
+        loader: 'eslint',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.js$/,
+        loader: 'eslint',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.(sass|scss)$/,
+        loader: 'stylelint',
+        include: /style/
+      }
+    ],
     loaders: [
       {
         test: /\.jsx?$/,
@@ -40,6 +57,13 @@ module.exports = {
     resolve: {
       extensions: ['', '.js', '.jsx']
     }
+  },
+  stylelint: {
+    configFile: './.stylelintrc'
+  },
+  jshint: {
+    emitErrors: true,
+    failOnHint: false,
   },
   devServer: {
     contentBase: "./app",

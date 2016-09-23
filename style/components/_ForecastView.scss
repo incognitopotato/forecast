@@ -1,0 +1,17 @@
+.forecast-view {
+    background-color: #11b7c7;
+    box-sizing: border-box;
+    height: 100vh;
+    padding-top: 20vh;
+
+    &__inner {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        height: 80%;
+        max-width: 400px;
+        margin: auto;
+    }
+}

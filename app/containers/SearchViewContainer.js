@@ -4,14 +4,12 @@ import { views as v } from '../utils/constants';
 import { submitSearchForm } from '../actions';
 import SearchView from '../components/SearchView.jsx';
 
-const mapStateToProps = ({ view }) => {
-  return {
-    isHeaderMode: view.main === v.SEARCH,
-    isSearchMode: view.header === v.HEADER_SEARCH
-  };
-};
+const mapStateToProps = ({ view }) => ({
+  isHeaderMode: view.main === v.MAIN_FORECAST_VIEW,
+  isSearchMode: view.header === v.HEADER_SEARCH_VIEW
+});
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({
+const mapDispatchToProps = dispatch => bindActionCreators({
   onSubmit: submitSearchForm
 }, dispatch);
 

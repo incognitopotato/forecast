@@ -1,13 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
 import rootReducer from './reducers';
 import { App } from './components';
 
-const isomorphicState = window.__PRELOADED_STATE__ || false;
+const isomorphicState = window.__PRELOADED_STATE__ || false; //eslint-disable-line
 const logger = createLogger();
 let store;
 

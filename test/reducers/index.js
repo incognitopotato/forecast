@@ -8,7 +8,8 @@ const initialState = {
     header: v.HEADER_DEFAULT_VIEW
   },
   zipcode: null,
-  weatherData: null
+  forecast: null,
+  city: null
 };
 
 describe('Reducers - ', () => {

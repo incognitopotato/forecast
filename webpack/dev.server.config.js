@@ -6,7 +6,7 @@ module.exports = {
   entry: [
     'babel-polyfill',
     'webpack-hot-middleware/client',
-    './styles/main.scss',
+    './style/main.scss',
     './app/index.js'
   ],
   output: {

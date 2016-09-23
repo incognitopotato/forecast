@@ -1,7 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import { isClient } from '../utils/env';
-import { renderWithDefault } from '../utils/renderingHelpers';
 import { arrowNoop as noop } from '../utils/noop';
 
 export default class SearchForm extends Component {
@@ -58,14 +56,17 @@ export default class SearchForm extends Component {
 
   render() {
     return (
-      <form className="search-form" ref="wrapper" onSubmit={ this.handleSubmit }>
-        <input className="search-form__input"
+      <form
+        className="search-form"
+        onSubmit={this.handleSubmit}
+      >
+        <input
+          className="search-form__input"
           type="text"
-          ref="input"
-          onChange={ this.onChange }
-          placeholder={ this.props.placeholder }
+          onChange={this.onChange}
+          placeholder={this.props.placeholder}
         />
-        <button className="search-form__button" type="submit" ref="button">
+        <button className="search-form__button" type="submit">
           { this.props.cta }
         </button>
         <ReactCSSTransitionGroup
@@ -75,7 +76,7 @@ export default class SearchForm extends Component {
             leave: 'search-form__error-msg--leave',
             leaveActive: 'search-form__error-msg--leave-active'
           }}
-          transitionAppear={true}
+          transitionAppear
           transitionAppearTimeout={500}
           transitionEnterTimeout={500}
           transitionLeaveTimeout={500}
