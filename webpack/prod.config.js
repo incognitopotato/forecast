@@ -1,19 +1,25 @@
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry: [
     'babel-polyfill',
-    './style/main.scss',
-    './app/index.jsx',
-    'webpack-dev-server/client?http://localhost:8080'
+    './app/main.scss',
+    './app/prod.js'
   ],
   output: {
-      publicPath: '/',
-      filename: 'main.js'
+      path: './dist/',
+      filename: 'main.js',
+      publicPath: '/static/',
   },
-  debug: true,
-  devtool: 'source-map',
+  plugins: [
+    new ExtractTextPlugin("style.css", {allChunks: false}),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': '"production"',
+      ENV: JSON.stringify('PRODUCTION')
+    }),
+  ],
   module: {
     preLoaders: [
       {
@@ -29,7 +35,7 @@ module.exports = {
       {
         test: /\.(sass|scss)$/,
         loader: 'stylelint',
-        include: /style/
+        exclude: /node_modules/
       }
     ],
     loaders: [
@@ -51,7 +57,8 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loaders: ["style", "css?sourceMap", "autoprefixer", "sass?sourceMap"]
+        exclude: /node_modules/,
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!autoprefixer-loader!sass-loader')
       }
     ],
     resolve: {

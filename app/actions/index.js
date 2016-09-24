@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-fetch';
+import { getJSON } from '../utils/ajax';
 import getForecastEndpoint from '../utils/endpoints';
 import { views as v } from '../utils/constants';
 
@@ -40,19 +40,19 @@ export const updateCity = city => ({
 export function submitSearchForm(zipcode) {
   return (dispatch) => {
     const endpoint = getForecastEndpoint(zipcode);
-    dispatch(updateZipcode(zipcode));
+    const headers = {};
 
-    fetch(endpoint)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`Error: Your API call returned an error status ${response.statusCode}`);
-      }
-      return response.json();
-    })
-    .then((body) => {
-      dispatch(updateCity(body.city));
-      dispatch(updateForecast(body.list));
+    const handleSuccess = (res) => {
+      dispatch(updateZipcode(zipcode));
+      dispatch(updateCity(res.city));
+      dispatch(updateForecast(res.list));
       dispatch(updateView(v.MAIN_AREA, v.MAIN_FORECAST_VIEW));
-    });
+    };
+
+    const handleFailure = () => {
+      throw new Error('Something went wrong with the AJAX request');
+    };
+
+    getJSON(endpoint, headers, handleSuccess, handleFailure);
   };
 }

@@ -2,30 +2,30 @@
     color: rgba(255, 255, 255, 0.8);
     flex-grow: 1;
     font-family: sans-serif;
-    margin: 0px 30px 30px 30px;
+    margin: 0 30px 30px;
     text-align: center;
     width: 30%;
 
     .weather-item__temp {
         font-size: 32px;
-        margin: 0px;
+        margin: 0;
     }
 
     .weather-item__day {
         font-size: 14px;
-        margin: 0px;
+        margin: 0;
     }
 
     .weather-item__description {
         font-size: 10px;
-        margin: 0px;
+        margin: 0;
     }
 
     &--large {
         width: 100%;
         margin-bottom: 8vh;
         text-align: left;
-        padding: 0px 33px;
+        padding: 0 33px;
 
         .weather-item__temp {
             font-size: 90px;

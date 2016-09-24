@@ -4,16 +4,12 @@
     display: flex;
     height: auto;
     justify-content: center;
-    left: 0px;
+    left: 0;
     min-height: 100vh;
     position: absolute;
-    top: 0px;
+    top: 0;
     transition: 0.6s min-height, 0.6s background-color;
     width: 100%;
-
-    &__inner {
-
-    }
 
     &__logo-wrapper {
         position: relative;
@@ -22,15 +18,15 @@
     &__logo-text {
         font-family: sans-serif;
         font-size: 48px;
-        margin-bottom: 0px;
+        margin-bottom: 0;
         transition: 0.3s font-size;
     }
 
     &__logo-z {
-        left: 0px;
+        left: 0;
         position: absolute;
         transition: 0.3s opacity;
-        top: 0px;
+        top: 0;
 
         &:first-child {
             transform: translate(-15px, -5px);
@@ -51,7 +47,7 @@
 
     &--as-header {
         background-color: rgba(255, 255, 255, 0.85);
-        min-height: 0vh;
+        min-height: 0;
 
         .search-view {
             &__logo-text {

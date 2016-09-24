@@ -7,20 +7,19 @@ import createLogger from 'redux-logger';
 import rootReducer from './reducers';
 import { App } from './components';
 
-const isomorphicState = window.__PRELOADED_STATE__ || false; //eslint-disable-line
 const logger = createLogger();
 let store;
 
-if (isomorphicState) {
+// apply logger to dev env
+if (window.env === 'prod') {
   store = createStore(
     rootReducer,
-    isomorphicState,
-    applyMiddleware(thunk, logger) // logger has to come last!
+    applyMiddleware(thunk)
   );
 } else {
   store = createStore(
     rootReducer,
-    applyMiddleware(thunk, logger) // logger has to come last!
+    applyMiddleware(thunk, logger)
   );
 }
 
