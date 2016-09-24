@@ -23,24 +23,25 @@ Testing is handled using Jasmine, Karma, Sinon, and Enzyme.  I've provided examp
 
 Linting is handled by ESLint and Stylelint.
 
-## To Run in Dev Mode
+## DO THIS FIRST
 ```
 npm install
+```
+
+## To Run in Dev Mode
+```
 npm run start
 ```
 ## To Build SCSS and JS
 ```
-npm install
 npm run build
 ```
 ## To Run Prod Server
 ```
-npm install
 npm run server
 ```
 ## To Build and Run On Prod Server
 ```
-npm install
 npm run prod
 ```
 ## To Run Tests
@@ -49,5 +50,9 @@ npm run test
 ```
 ## To Run Linter
 ```
+# for JS
 npm run eslint
+
+# for styles
+npm run stylelint
 ```
