@@ -30,6 +30,7 @@ npm install
 
 ## To Run in Dev Mode
 ```
+# Will run on localhost:8080
 npm run start
 ```
 ## To Build SCSS and JS
@@ -38,10 +39,12 @@ npm run build
 ```
 ## To Run Prod Server
 ```
+# Will run on localhost:3000
 npm run server
 ```
 ## To Build and Run On Prod Server
 ```
+# Will run on localhost:3000
 npm run prod
 ```
 ## To Run Tests
