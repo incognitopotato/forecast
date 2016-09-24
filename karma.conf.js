@@ -8,14 +8,13 @@ module.exports = function(config) {
       'test/**/*.js'
     ],
     preprocessors: {
-      // add webpack as preprocessor
       'src/app/*.js': ['webpack', 'sourcemap'],
       'src/app/*.jsx': ['webpack', 'sourcemap'],
       'test/**/*.js': ['webpack', 'sourcemap']
     },
 
-    webpack: { //kind of a copy of your webpack config
-      devtool: 'inline-source-map', //just do inline source maps instead of the default
+    webpack: {
+      devtool: 'inline-source-map',
       module: {
         loaders: [
           {
@@ -52,7 +51,7 @@ module.exports = function(config) {
     },
 
     webpackServer: {
-      noInfo: true //please don't spam the console when running in karma!
+      noInfo: true // don't spam the console when running in karma!
     },
 
     plugins: [
@@ -77,7 +76,8 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome', 'PhantomJS', 'Safari', 'Firefox'],
+    browsers: ['Chrome', 'PhantomJS'],
+    // browsers: ['Chrome', 'PhantomJS', 'Safari', 'Firefox'], // used this during dev but it's pretty irritating
     singleRun: false,
   })
 };

@@ -17,9 +17,6 @@ export default class SearchView extends Component {
       <section className={this.wrapperClasses}>
         <div className="search-view__inner">
           <div className="search-view__logo-wrapper">
-            <span aria-hidden="true" className="search-view__logo-z">z</span>
-            <span aria-hidden="true" className="search-view__logo-z">z</span>
-            <span aria-hidden="true" className="search-view__logo-z">z</span>
             <h1 className="search-view__logo-text">{this.props.logoText}</h1>
           </div>
           <SearchForm
@@ -44,12 +41,12 @@ SearchView.propTypes = {
 };
 
 SearchView.defaultProps = {
-  logoText: 'Snorecast.',
+  logoText: 'Forecast.',
   form: {
-    cta: 'zzz',
+    cta: 'go',
     placeholder: 'zipcode',
     validator: regZip,
-    errorMsg: 'Please enter a valid 5 digit zipcode.'
+    errorMsg: 'please enter a valid 5 digit zipcode.'
   },
   onSubmit: noop,
   isHeaderMode: false,

@@ -11,38 +11,11 @@
     transition: 0.6s min-height, 0.6s background-color;
     width: 100%;
 
-    &__logo-wrapper {
-        position: relative;
-    }
-
     &__logo-text {
         font-family: sans-serif;
         font-size: 48px;
         margin-bottom: 0;
         transition: 0.3s font-size;
-    }
-
-    &__logo-z {
-        left: 0;
-        position: absolute;
-        transition: 0.3s opacity;
-        top: 0;
-
-        &:first-child {
-            transform: translate(-15px, -5px);
-        }
-
-        &:nth-child(2) {
-            transform:
-                translate(-31px, -10px)
-                rotate(40deg);
-        }
-
-        &:nth-child(3) {
-            transform:
-                translate(-40px, -25px)
-                rotate(69deg);
-        }
     }
 
     &--as-header {
@@ -52,10 +25,6 @@
         .search-view {
             &__logo-text {
                 font-size: 18px;
-            }
-
-            &__logo-z {
-                opacity: 0;
             }
         }
 

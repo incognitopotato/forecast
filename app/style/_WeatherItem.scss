@@ -22,10 +22,10 @@
     }
 
     &--large {
-        width: 100%;
         margin-bottom: 8vh;
-        text-align: left;
         padding: 0 33px;
+        text-align: left;
+        width: 100%;
 
         .weather-item__temp {
             font-size: 90px;
